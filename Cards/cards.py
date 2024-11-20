@@ -58,8 +58,6 @@ def approx_average_is_average(hand):
 
     return bool(avg_first_and_last == actual_average or median(hand) == actual_average)
 
-print(approx_average_is_average([0, 1, 5]))
-        
 
 def average_even_is_average_odd(hand):
     """Return if the (average of even indexed card values) == (average of odd indexed card values).
@@ -68,7 +66,28 @@ def average_even_is_average_odd(hand):
     :return: bool - are even and odd averages equal?
     """
 
-    pass
+    even_list = []
+    odd_list = []
+    for number in hand:
+        if number % 2 == 0:
+            even_list.append(number)
+        else:
+            odd_list.append(number)
+
+    if len(even_list) == 0:
+        even_list = odd_list
+        avg_even = sum(even_list) / len(even_list)
+    else:
+        avg_even = sum(even_list) / len(even_list)
+
+    if len(odd_list) == 0:
+        odd_list = even_list
+        avg_odd = sum(odd_list) / len(odd_list)
+    else:
+        avg_odd = sum(odd_list) / len(odd_list)
+
+
+    return bool(avg_even == avg_odd)
 
 
 def maybe_double_last(hand):
