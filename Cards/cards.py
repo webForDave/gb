@@ -5,7 +5,7 @@ def get_rounds(number):
     :return: list - current round and the two that follow.
     """
 
-    rounds = [round for round in range(number, number + 3)]
+    rounds = [r for r in range(number, number + 3)]
     return rounds
 
 
@@ -99,8 +99,7 @@ def maybe_double_last(hand):
 
     if hand[-1] == 11:
         hand[-1] = 11 * 2
-        return hand
-    else:
-        return hand
+    return hand
+
 
 print(maybe_double_last([5, 9, 10]))
